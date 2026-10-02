@@ -58,8 +58,11 @@ pipeline {
     }
 
     post {
-            always {
-                junit 'reports/*.xml'
+        always {
+            junit 'reports/*.xml'
+            script {
+                currentBuild.displayName = "#${env.BUILD_NUMBER} - Soulaima"
             }
+        }
         }
 }
