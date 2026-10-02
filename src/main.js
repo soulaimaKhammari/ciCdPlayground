@@ -11,7 +11,7 @@ new App({
     // What do you associate with the term 'CI/CD'?
     associations: ["unexpected failures, not very helpful log errors"],
     // Which CI/CD tools do you use in your project?
-    tools: "Github actions",
+    tools: "Jenkins",
     // What do you want to learn in this workshop?
     expectations: ["setup a cicd pipeline from scratch because usually either we use the pipeline or dupplicate it from another project and then use it"],
   },
