@@ -31,8 +31,8 @@ jobs:
     - name: Integration tests
       run: yarn test:e2e
     - name: Publish Test Report
-        id: report
-        uses: mikepenz/action-junit-report@v6
-        if: success() || failure() # always run even if the previous step fails
-        with:
-          report_paths: '**/reports/*.xml'
+      id: report
+      uses: mikepenz/action-junit-report@v6
+      if: success() || failure() # always run even if the previous step fails
+      with:
+        report_paths: '**/reports/*.xml'
