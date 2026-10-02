@@ -30,7 +30,11 @@ pipeline {
             }
         }
 
-        junit './reports/*.xml'
+        post {
+            always {
+                junit './reports/*.xml'
+            }
+        }
 
         stage('deploy') {
             steps {
