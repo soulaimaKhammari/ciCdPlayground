@@ -4,7 +4,12 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-  
+    inputs:
+      deploy:
+        description: 'Deploy to GitHub Pages'
+        type: boolean
+        default: true
+
 permissions:
   checks: write
   pull-requests: write
@@ -45,6 +50,7 @@ jobs:
   
   deploy:
     needs: build
+    if: github.event_name == 'push' || inputs.deploy
     runs-on: ubuntu-latest
     environment:
       name: github-pages
