@@ -36,3 +36,13 @@ jobs:
       if: ${{ always() }} # always run even if the previous step fails
       with:
         report_paths: 'reports/*.xml'
+  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
