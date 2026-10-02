@@ -30,12 +30,6 @@ pipeline {
             }
         }
 
-        post {
-            always {
-                junit 'reports/*.xml'
-            }
-        }
-
         stage('deploy') {
             steps {
                 s3Upload consoleLogLevel: 'INFO', 
@@ -62,4 +56,10 @@ pipeline {
             }
         }
     }
+
+    post {
+            always {
+                junit 'reports/*.xml'
+            }
+        }
 }
