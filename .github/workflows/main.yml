@@ -36,6 +36,12 @@ jobs:
       if: ${{ always() }} # always run even if the previous step fails
       with:
         report_paths: 'reports/*.xml'
+    - name: Configure Pages
+      uses: actions/configure-pages@v5
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: public
   
   deploy:
     needs: build
